@@ -1,0 +1,47 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "User List";
+}
+<div class="text-center" id="app">
+    <table class="table">
+        <thead>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <form class="form-inline" v-on:submit.prevent="search">
+                    <div class="form-group mb-2">
+                        <label for="search" class="col-form-label">Search</label>
+                        <input type="text" name="search" id="search" class="form-control" formaction=""
+                               v-model="searchTerm" 
+                               v-on:input="search"/>
+                    </div>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td>First Name</td>
+            <td>Family Name</td>
+        </tr>
+        </thead>
+        <tbody v-if="!loading && !error">
+        <tr v-for="user in userList">
+            <td>{{ user.username }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.familyName }}</td>
+        </tr>
+        </tbody>
+        <tbody v-if="loading">
+        <tr>
+            <td colspan="3" class="table-info text-center">Loading...</td>
+        </tr>
+        </tbody>
+        <tbody v-if="error">
+        <tr>
+            <td colspan="3" class="table-danger text-center">Failed to load data</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
