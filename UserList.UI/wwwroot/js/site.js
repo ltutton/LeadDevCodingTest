@@ -3,7 +3,7 @@
 
 // Write your Javascript code.
 (function() {
-    var apiHostname = 'https://localhost:5102/User';
+    var apiHostname = 'http://localhost:5001/User';
     var app = new Vue({
         el: '#app',
         data: {

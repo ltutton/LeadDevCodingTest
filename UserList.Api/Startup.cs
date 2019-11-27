@@ -33,7 +33,7 @@ namespace UserList.Api
                 options.AddPolicy(_allowSpecificOrigins,
                     builder =>
                     {
-                        builder.WithOrigins("https://localhost:5100", 
+                        builder.WithOrigins("https://localhost:44354", 
                             "http://localhost:5000");
                     }));
             services.AddDbContext<UserDbContext>((provider, builder) =>
